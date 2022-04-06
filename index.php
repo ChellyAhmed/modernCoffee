@@ -4,6 +4,7 @@ $query = 'SELECT * FROM coffee ORDER BY date_time desc';
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 
+
 ?>
 
 <!DOCTYPE html>

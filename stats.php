@@ -1,4 +1,14 @@
 <?php
+#######
+// Sending the data from the hardware to the database
+// Host the app on my computer
+// Flusk
+####
+// Send data from raspberry pi to the database
+// Host the app on our computer.
+// mysql -u USERNAME -p PASSWIRD -h IPADDRESS
+
+
 //Connect to DB
 include "connection.php";
 
