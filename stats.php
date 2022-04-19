@@ -80,56 +80,86 @@ for ($i = 0; $i < sizeof($indexOfEmptyCup) - 1; $i++) {
 </head>
 
 <body>
-    <h1 style="text-align: center;">Overall Consumption Statistics</h1> <br>
 
 
-    <div style="padding: 10px;">
-        <h5 style="text-align: center;">in the past 7 days:</h5>
-        <h6>Total volume of consumed coffee:</h6>
-        <span><?php
-                try {
-                    echo $total . "cL"; ?>
-            <?php } catch (Throwable $th) {
-                    echo "Not enough data to measure statistics.";
-                } ?></span>
-        <br>
-        <br>
-        <h6>Average daily volume of consumed coffee:</h6>
-        <span><?php
-                try {
-                    echo round($weekly, 2, PHP_ROUND_HALF_UP) . "cL"; ?>
-            <?php } catch (Throwable $th) {
-                    echo "Not enough data to measure statistics.";
-                } ?></span>
-        <br>
-        <br>
-        <h6>Average time to finish coffee:</h6>
-        <span><?php
-                try {
-                    echo round(array_sum($times) / count($times), 2, PHP_ROUND_HALF_UP) . "minutes"; ?>
-            <?php } catch (Throwable $th) {
-                    echo "Not enough data to measure statistics.";
-                } ?></span>
-        <br>
-        <br>
-        <h6>Average temperature of coffee:</h6>
-        <span><?php
-                try {
-                    echo round(array_sum($averageTemperatures) / count($averageTemperatures), 2, PHP_ROUND_HALF_UP) . "°C"; ?>
-            <?php } catch (Throwable $th) {
-                    echo "Not enough data to measure statistics.";
-                } ?></span>
-        <br>
-        <br>
-        <h6>Drinking speed:</h6>
-        <span><?php
-                try {
-                    echo round(array_sum($speeds) / count($speeds), 2, PHP_ROUND_HALF_UP) . "cL/min"; ?>
-            <?php } catch (Throwable $th) {
-                    echo "Not enough data to measure statistics.";
-                } ?></span>
+    <img class="beans-bottom" src="beans.png" alt="Coffee beans for background">
+
+    <h1 style="text-align: center;">Overall Consumption Statistics</h1>
+
+
+    <div class="container" style="padding: 10px;">
+        <div class="row">
+            <div class="card-container" style="text-align: center;">
+                <div class="card">
+
+                    <h3>
+                        <?php
+                        try {
+                            echo $total . "cL"; ?>
+                        <?php } catch (Throwable $th) {
+                            echo "Not enough data to measure statistics.";
+                        } ?>
+                    </h3>
+                    <span style="font-size: small; color: grey;">Total volume of consumed coffee</span>
+
+                </div>
+            </div>
+            <div class="card-container col-6">
+                <div class="card">
+                    <h3>
+                        <?php
+                        try {
+                            echo round(array_sum($speeds) / count($speeds), 2, PHP_ROUND_HALF_UP) . "cL/min"; ?>
+                        <?php } catch (Throwable $th) {
+                            echo "Not enough data to measure statistics.";
+                        } ?>
+                    </h3>
+                    <span style="font-size: small; color: grey;">Drinkign speed</span>
+
+                </div>
+            </div>
+            <div class="card-container col-6">
+                <div class="card">
+                    <h3>
+                        <?php
+                        try {
+                            echo round($weekly, 2, PHP_ROUND_HALF_UP) . "cL"; ?>
+                        <?php } catch (Throwable $th) {
+                            echo "Not enough data to measure statistics.";
+                        } ?>
+                    </h3>
+                    <span style="font-size: small; color: grey;">Average daily volume of consumed coffee</span>
+                </div>
+            </div>
+            <div class="card-container col-6">
+                <div class="card">
+                    <h3>
+                        <?php
+                        try {
+                            echo round(array_sum($times) / count($times), 2, PHP_ROUND_HALF_UP) . "minutes"; ?>
+                        <?php } catch (Throwable $th) {
+                            echo "Not enough data to measure statistics.";
+                        } ?>
+                    </h3>
+                    <span style="font-size: small; color: grey;">Average time to finish coffee</span>
+                </div>
+            </div>
+            <div class="card-container col-6">
+                <div class="card">
+                    <h3>
+                        <?php
+                        try {
+                            echo round(array_sum($averageTemperatures) / count($averageTemperatures), 2, PHP_ROUND_HALF_UP) . "°C"; ?>
+                        <?php } catch (Throwable $th) {
+                            echo "Not enough data to measure statistics.";
+                        } ?>
+                    </h3>
+                    <span style="font-size: small; color: grey;">Average temperature of coffee</span>
+                </div>
+            </div>
+
+        </div>
     </div>
-
 
 
 
@@ -138,6 +168,7 @@ for ($i = 0; $i < sizeof($indexOfEmptyCup) - 1; $i++) {
         <a href="index.php" class="navbar-element">
             <i class="bi bi-house"></i>
         </a>
+        <div class="line"> </div>
         <a class="navbar-element-active">
             <i class="bi bi-pie-chart-fill"></i>
         </a>

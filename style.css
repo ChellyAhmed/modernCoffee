@@ -7,11 +7,21 @@ body {
     margin: 0;
     padding: 0;
     position: relative;    
-    background: rgb(242,153,74);
-    background: linear-gradient(0deg, rgba(242,153,74,0.8) 0%, rgba(242,201,76,0.8) 100%);
+    background: #faf5ee;
     padding-top: 20px;
 }
-
+.beans-top{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
+}
+.beans-bottom{
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+}
 .info-holder{
     font-size: xx-large;
     left: 0;
@@ -28,16 +38,16 @@ footer{
     right: 0;
     display: flex;
     justify-content: space-around;
+    border-top: 1px solid #3e2723;
 
 }
 
 .navbar-element-active , .navbar-element-active:hover{
-    background-color: #3e2723;
     width: 100%;
     height: 100%;
     font-size: 1.5em;
     text-align: center;
-    color: #F2C94C;
+    color: #3e2723;
     position: relative;
 }
 .navbar-element-active .bi, .navbar-element-active .bi:hover{
@@ -45,17 +55,22 @@ footer{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 }
 
 .navbar-element , .navbar-element:hover{
-    background-color: #F2C94C;
+    background-color: #faf5ee;
     height: 100%;
     font-size: 1.5em;
     text-align: center;
     width: 100%;
     position: relative;
-    
 }
+
+.line{
+    border-right: 1px solid #3e2723;
+}
+
 .navbar-element .bi , .navbar-element .bi:hover {
     color: #3e2723;
     position: absolute;
@@ -68,4 +83,12 @@ footer{
     display: inline;
     font-size: 1em;
     color: #3e2723;
+}
+
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 120px;
+    justify-content: center;
+    text-align:center;
 }

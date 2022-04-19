@@ -24,6 +24,7 @@ $row = $result->fetch_assoc();
 </head>
 
 <body>
+    <img class="beans-top" src="beans.png" alt="Coffee beans for background">
     <h1 style="text-align: center;">Modern Coffee</h1> <br>
     
     <div class="info-holder">
@@ -44,6 +45,7 @@ $row = $result->fetch_assoc();
         <a class="navbar-element-active">
             <i class="bi bi-house-fill"></i>
         </a>
+        <div class="line">        </div>
         <a href="stats.php" class="navbar-element">
             <i class="bi bi-pie-chart"></i>
         </a>
