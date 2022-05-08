@@ -1,8 +1,16 @@
+# sudo apt-get install libgpiod2
+# sudo apt update
+# sudo apt full-upgrade
+# Sudo apt install python3-pip
+# sudo pip3 install --upgrade setuptools
+# sudo reboot
 # sudo pip3 install --upgrade adafruit-python-shell
 # wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
 # sudo python3 raspi-blinka.py
 # pip3 install adafruit-circuitpython-dht
-# sudo apt-get install libgpiod2
+#sudo apt install mariadb-server
+# sudo apt install python3-mysqldb
+#pip3 install mysql-connector
 
 import RPi.GPIO as GPIO
 import time
@@ -14,7 +22,7 @@ import psutil
 import mysql.connector
 try:
     cnx = mysql.connector.connect(user='pi', password='raspberry',
-                                  host='192.168.56.123',
+                                  host='192.168.56.93',
                                   database='moderncoffee')
 except:
     print("An exception occurred")
@@ -27,7 +35,7 @@ cursor = cnx.cursor()
 for proc in psutil.process_iter():
     if proc.name() == 'libgpiod_pulsein' or proc.name() == 'libgpiod_pulsei':
         proc.kill()
-sensor = adafruit_dht.DHT11(board.D23)
+sensor = adafruit_dht.DHT11(board.D14)
 
 
 def measure_temp():
@@ -37,8 +45,8 @@ def measure_temp():
 
 # GPIO.setmode(GPIO.BOARD)
 def measure_distance():  # Returns distance in centimeter
-    PIN_TRIGGER = 12
-    PIN_ECHO = 23
+    PIN_TRIGGER = 2
+    PIN_ECHO = 3
 
     GPIO.setup(PIN_TRIGGER, GPIO.OUT)
     GPIO.setup(PIN_ECHO, GPIO.IN)
@@ -75,7 +83,7 @@ measure_distance()
 ####NEW CODE STARTS HERE
 def measure_coffee():
     dist = measure_distance()
-    return dist * 3.14159 * 3.4 * 3.4  # Result in mL
+    return (7.9 - dist) * 3.14159 * 3.4 * 3.4 *0.1  # Result in cL
 
 
 try:
@@ -98,8 +106,8 @@ while (True):
         temp2 = temp1
 #Send vol2 and temp2 to DB as current temperature and volume as new entries
     try:
-        req = "INSERT into coffee(temperature,volume) values (temp2,vol2)"
-        cursor.execute(req)
+        req = "INSERT into coffee(temperature,volume) values (%i,%i)"
+        cursor.execute(req, (temp2 , vol2) )
         cnx.commit()
     except:
         print("Error sending date")

@@ -114,7 +114,7 @@ for ($i = 0; $i < sizeof($indexOfEmptyCup) - 1; $i++) {
                             echo "Not enough data to measure statistics.";
                         } ?>
                     </h3>
-                    <span style="font-size: small; color: grey;">Drinkign speed</span>
+                    <span style="font-size: small; color: grey;">Drinking speed</span>
 
                 </div>
             </div>
